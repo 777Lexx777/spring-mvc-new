@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">-->
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <table border="3">
+        <thead>
+        <caption><h1>Users</h1></caption>
+                <tr>
+                    <th> </th>
+                    <th> Firs tName</th>
+                    <th> Move</th>
+                    <th> </th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${messages}">
+                <td><span >--</span></td>
+                <td><span th:text="${user.getFirstName()}">firstName</span></td>
+                <td><a th:href="@{/user/{id}(id=${user.getId()})}" >click here to view user data</a></td>
+                <td><span>--</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><a th:href="@{/user/new}" >Click here to add a new user</a>
+</body>
+</html>
